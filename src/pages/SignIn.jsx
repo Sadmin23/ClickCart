@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { login } from '../redux/user/userSlice'
 
 export default function SignIn() {
+
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,7 +32,10 @@ export default function SignIn() {
     .then(res => res.json())
     .then(data => {
       // kminchelle  0lelplR
-      (data && data.token) ?  navigate('/') : console.log("Login failed");
+      (data && data.token) ? (() => {
+        dispatch(login());
+        navigate('/');
+      })() : console.log("Login failed");
     })
   };
 
