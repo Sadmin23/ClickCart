@@ -10,7 +10,7 @@ export default function App() {
   const loggedIn = useSelector(state => state.user);
 
   const ProtectedRoute = ({ element, path }) => {
-    return loggedIn ? (
+    return (loggedIn.value) ? (
       element
     ) : (
       <Navigate to="/sign-in" replace state={{ from: path }} />
