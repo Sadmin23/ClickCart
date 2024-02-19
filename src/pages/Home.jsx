@@ -3,12 +3,14 @@ import Card from '../components/Card';
 import RangeSlider from '../components/RangeSlider';
 import { useSelector } from 'react-redux';
 import { selectRangeValues } from '../redux/user/rangeSlice';
+import { searchProduct } from '../redux/user/searchSlice';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
 
   const rangeValues = useSelector(selectRangeValues)
+  const searchedValue = useSelector(searchProduct)
 
   useEffect(() => {
     const apiUrl = 'https://dummyjson.com/products';
@@ -26,14 +28,18 @@ export default function Home() {
 
         filteredData = filteredData.filter(product => product.price >= rangeValues[0] && product.price <= rangeValues[1])
 
+        filteredData = filteredData.filter(item =>
+          item.title.toLowerCase().includes(searchedValue.toLowerCase())
+        );
+
         setProducts(filteredData);
-        console.log(filteredData);
+        console.log(searchedValue);
       })
       .catch((error) => {
         console.error('Fetch error:', error);
         setError(true);
       });
-  }, [rangeValues]);
+  }, [rangeValues, searchedValue]);
 
   return (
     <div className="flex flex-grow w-full lg:flex-row flex-col">

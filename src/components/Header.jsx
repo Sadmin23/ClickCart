@@ -1,18 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SearchBar from './SearchBar'
+import { FiShoppingCart } from "react-icons/fi";
 
 export default function Header() {
+
+  const totalQuantity = 0;
+
   return (
-    <header className='bg-slate-200 shadow-md'>
-        <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
-            <Link to='/'>
-                <h1 className='text-xl lg:text-3xl font-bold text-blue-600'>ShopIt</h1>
-            </Link>
-            <ul className='flex gap-6 md:text-lg font-semibold'>
-                <li className='text-slate-700 hover:underline'><a href="/cart">Cart</a></li>
-                <li className='text-slate-700 hover:underline'><a href="/sign-in">Sign In</a></li>
-            </ul>
+    <div className="flex flex-col w-full ">
+      <div className="flex items-center justify-between sticky top-0 z-30 left-0 bg-white px-5 h-16 shadow-sm border-b border-gray-300">
+        <div className="flex items-center">
+          <Link to="/">
+            <h1 className='md:pl-10'>ShopIT</h1>
+          </Link>
         </div>
-    </header>
+        <div className="flex w-2/3 items-center gap-6 justify-end relative">
+          <SearchBar/>
+          <FiShoppingCart
+            className="h-5 w-5 mr-6 hover:cursor-pointer"
+          />
+          {totalQuantity > 0 ? (
+            <p className="absolute top-1 right-1 -mt-2 bg-orange-500 rounded-full text-xs text-white px-1 py-0.5">
+              {totalQuantity}
+            </p>
+          ) : (
+            <p className="absolute top-1 right-1 -mt-2 bg-orange-500 rounded-full text-xs text-white px-1 py-0.5">
+              0
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
   )
 }

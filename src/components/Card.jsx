@@ -1,35 +1,11 @@
 const Card = (product) => {
 
     product = product.product;
-    
-  const renderRatingStars = () => {
-    const stars = [];
-    const rating = product.rating;
-    for (let i = 0; i < 5; i++) {
-      const starClass = i <= rating ? "text-yellow-400" : "text-gray-300";
-      stars.push(
-        <svg
-          key={i}
-          className={`w-4 h-4 fill-current ${starClass}`}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <path
-            fillRule="evenodd"
-            d="M10 15.585L3.535 19.9l1.065-6.203L.293 7.115l6.257-.91L10 0l3.45 6.205 6.257.91-4.307 4.582 1.064 6.203z"
-          />
-        </svg>
-      );
-    }
-    return stars;
-  };
+  
 
   return (
     <div className="flex w-80 border border-gray-400 rounded-md hover:shadow-md cursor-pointer">
       <div className="w-full relative bg-white rounded-md p-4">
-        {/* <div className="absolute top-2 right-2 flex flex-row items-center justify-center h-8 p-2 bg-orange-500 rounded-full">
-          <p className="text-sm font-semibold text-white">$ {product.price}</p>
-        </div> */}
         <img
           src={product.images[0]}
           alt={product.title}
