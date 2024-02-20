@@ -3,6 +3,8 @@ import SearchBar from './SearchBar'
 import { FiShoppingCart } from "react-icons/fi";
 import { useState } from 'react';
 import Cart from './Cart';
+import { useSelector } from 'react-redux';
+import { itemCount } from '../redux/cart/cartSlice';
 
 export default function Header() {
 
@@ -16,7 +18,7 @@ export default function Header() {
     setCartOpen(!prev);
   }
 
-  const totalQuantity = 0;
+  const totalQuantity = useSelector(itemCount);
 
   return (
     <div className="flex flex-col w-full ">

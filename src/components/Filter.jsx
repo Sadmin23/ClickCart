@@ -29,7 +29,7 @@ export default function Filter() {
     };
 
   return (
-    <div className="flex flex-col items-center w-full lg:w-1/4 p-6 h-72 lg:h-52 lg:pl-6 lg:pr-2 py-5 bg-[#FCFBFC] rounder-lg ">
+    <div className="flex flex-col items-center w-full lg:w-1/4 p-6 h-52 lg:pl-6 lg:pr-2 py-5 bg-[#FCFBFC] rounder-lg ">
         <div className="flex flex-col flex-grow items-center justify-center w-full h-1/4 bg-white border border-gray-500 shadow-sm rounded-lg">
           <div className="flex flex-col w-full justify-start px-5 text-xl pt-3 space-y-3 font-semibold flex-grow">
             <p className="w-full">Price</p>

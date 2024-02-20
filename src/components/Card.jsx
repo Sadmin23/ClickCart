@@ -1,7 +1,29 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/cart/cartSlice";
+
 const Card = (product) => {
 
-    product = product.product;
+  const dispatch = useDispatch();
+
+  product = product.product;
+
+  const  [quantity, setQuantity] = useState(1);
   
+  const addtoCart = () => {
+      const totalPrice = product.price * quantity;
+      const cartItem = {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.images[0],
+        quantity: quantity,
+        totalPrice: totalPrice
+      };
+
+      dispatch(addItem(cartItem))
+    }
+
 
   return (
     <div className="flex w-80 border border-gray-400 rounded-md hover:shadow-md cursor-pointer">
@@ -25,9 +47,9 @@ const Card = (product) => {
               <p className="line-clamp-3">{product.description}</p>
             </p>
           </div>
-          <div className="flex flex-row items-center justify-center h-8 p-4 bg-orange-500 rounded-full">
+          <button className="flex flex-row items-center justify-center h-8 p-4 bg-orange-500 rounded-full" onClick={addtoCart}>
             <p className="text-sm font-semibold text-white">Add to cart</p>
-          </div>
+          </button>
         </div>
       </div>
     </div>

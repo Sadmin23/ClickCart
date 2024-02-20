@@ -1,11 +1,16 @@
 import { FiX } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import { itemCount, itemList, totalPrice } from "../redux/cart/cartSlice";
 
 export default function Cart(props) {
 
     const { handleClose } = props;
 
-    const totalQuantity = 1;
-    const totalPrice = 100;
+    const totalQuantity = useSelector(itemCount);
+    const total = useSelector(totalPrice);
+    const Items = useSelector(itemList);
+
+    console.log(Items);
 
   return (
     <>
@@ -27,7 +32,7 @@ export default function Cart(props) {
             </div>
             <div className="flex flex-row items-start justify-between w-full">
               <p className="font-semibold">Total</p>
-              <p className="font-semibold">$ {totalPrice.toFixed(2)}</p>
+              <p className="font-semibold">$ {total.toFixed(2)}</p>
             </div>
           </div>
         </div>

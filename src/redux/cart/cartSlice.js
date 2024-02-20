@@ -10,14 +10,33 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-        addItem: (state, action) => {
-            state.totalItems += 1
-            state.totalPrice += action.payload.price
-            state.itemList.push(action.payload)
-        }
+    addItem: (state, action) => {
+      const Item = action.payload;
+      const cItem = state.itemList.findIndex(
+        (item) => item.id === Item.id
+      );
+
+      if (cItem === -1) {
+        state.itemList.push({
+          id: Item.id,
+          title: Item.title,
+          price: Item.price,
+          image: Item.image,
+          quantity: Item.quantity,
+          totalPrice: Item.price,
+        });
+      } else {
+        state.itemList[cItem].quantity += Item.quantity;
+        state.itemList[cItem].totalPrice = state.itemList[cItem].price * state.itemList[cItem].quantity;
+      }
+      state.totalItems += Item.quantity;
+      state.totalPrice += Item.price * Item.quantity;
+    }
     },
 })
 
-export const { setSearchValue } = cartSlice.actions
-export const searchProduct = (state) => state.search.searchValue
+export const { addItem } = cartSlice.actions
+export const itemCount = (state) => state.cart.totalItems
+export const totalPrice = (state) => state.cart.totalPrice
+export const itemList = (state) => state.cart.itemList
 export default cartSlice.reducer
