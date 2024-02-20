@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
-import Cart from './pages/Cart';
 import { useSelector } from 'react-redux';
 
 export default function App() {
@@ -24,7 +23,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<ProtectedRoute element={<Home />} path={"/"}/>} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/cart" element={<ProtectedRoute element={<Cart />} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
