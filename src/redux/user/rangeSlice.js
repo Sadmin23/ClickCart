@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    rangeValues: [10, 1500],
+    rangeValues: [10, 1800],
 }
 
 export const rangeSlice = createSlice({
@@ -9,6 +9,8 @@ export const rangeSlice = createSlice({
   initialState,
   reducers: {
         setRangeValues: (state, action) => {
+          if (action.payload[1] > 1800) action.payload[1] = 1800
+          if (action.payload[0] < 10) action.payload[0] = 10          
           state.rangeValues = action.payload
         }
     },
