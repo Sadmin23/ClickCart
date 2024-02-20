@@ -3,13 +3,14 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import { useSelector } from 'react-redux';
+import { signedIn } from './redux/user/userSlice';
 
 export default function App() {
 
-  const loggedIn = useSelector(state => state.user);
+  const loggedIn = useSelector(signedIn)
 
   const ProtectedRoute = ({ element, path }) => {
-    return (loggedIn.value) ? (
+    return (loggedIn) ? (
       element
     ) : (
       <Navigate to="/sign-in" replace state={{ from: path }} />

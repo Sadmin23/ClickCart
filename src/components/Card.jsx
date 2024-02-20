@@ -35,16 +35,16 @@ const Card = (product) => {
         />
       </div>
       <div className="w-full rounded-b-md flex flex-col bg-[#EFEFEF]">
-        <p className="w-full font-bold  py-1 text-left px-2 overflow-hidden">
-            <p className="line-clamp-3">$ {product.price}</p>
+        <p className="w-full font-bold line-clamp-3 py-1 text-left px-2 overflow-hidden">
+            $ {product.price}
         </p>
         <div className="flex flex-col flex-grow items-center justify-between pb-4">
           <div className="w-full pt-1 px-2">
             <p className="text-sm font-semibold line-clamp-3">
               {product.title}
             </p>
-            <p className="w-full text-xs font-semibold  py-1  text-[#8A8888] text-justify overflow-hidden">
-              <p className="line-clamp-3">{product.description}</p>
+            <p className="w-full text-xs font-semibold line-clamp-3 py-1 text-[#8A8888] text-justify overflow-hidden">
+              {product.description}
             </p>
           </div>
           <button className="flex flex-row items-center justify-center h-8 p-4 bg-orange-500 rounded-full" onClick={addtoCart}>
