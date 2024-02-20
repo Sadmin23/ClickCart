@@ -1,6 +1,7 @@
 import { FiX } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { itemCount, itemList, totalPrice } from "../redux/cart/cartSlice";
+import CartItem from "./CartItem";
 
 export default function Cart(props) {
 
@@ -9,8 +10,6 @@ export default function Cart(props) {
     const totalQuantity = useSelector(itemCount);
     const total = useSelector(totalPrice);
     const Items = useSelector(itemList);
-
-    console.log(Items);
 
   return (
     <>
@@ -23,6 +22,9 @@ export default function Cart(props) {
           </div>
         </div>
         <div className="flex p-5 gap-2 flex-col items-center justify-start overflow-y-scroll flex-grow">
+        {Items.map(item => (
+          <CartItem key={item.id} item={item} />
+        ))}
         </div>
         <div className="flex flex-col items-end justify-end p-4 border-t border-gray-400 ">
           <div className="flex flex-col items-start justify-start w-full gap-3">
