@@ -16,16 +16,17 @@ export default function RangeSlider() {
       min={10}
       max={1800}
       onChange={handleChange}
+      disableSwap = {true}
       valueLabelDisplay="auto"
       sx={{
         '& .MuiSlider-track': {
-          backgroundColor: '#FFA500',
+          backgroundColor: '#F97316',
         },
         '& .MuiSlider-thumb': {
-          color: '#FFA500',
+          color: '#F97316',
         },
         '& .MuiSlider-rail': {
-          color: '#FFA500',
+          color: '#F97316',
         },
       }}
     />

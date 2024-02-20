@@ -13,7 +13,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="relative w-full md:w-1/3 h-10 rounded-full border border-gray-400">
+    <div className="relative w-1/2 md:w-1/3 h-10 rounded-full border border-gray-400">
       <input
         type="text"
         onChange={handleSearch}

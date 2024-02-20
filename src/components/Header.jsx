@@ -28,8 +28,8 @@ export default function Header() {
             <h1 className='md:pl-10'>ShopIT</h1>
           </Link>
         </div>
-        <div className="flex w-2/3 items-center gap-6 justify-end relative">
-          <SearchBar/>
+        <SearchBar/>
+        <div className="flex items-center gap-6 justify-end relative">
           <FiShoppingCart
             className="h-5 w-5 mr-6 hover:cursor-pointer"
             onClick={() => handleCart(cartOpen)}

@@ -10,7 +10,8 @@ export const rangeSlice = createSlice({
   reducers: {
         setRangeValues: (state, action) => {
           if (action.payload[1] > 1800) action.payload[1] = 1800
-          if (action.payload[0] < 10) action.payload[0] = 10          
+          if (action.payload[0] < 10) action.payload[0] = 10
+          if (action.payload[0] > action.payload[1]) action.payload[0] = action.payload[1]
           state.rangeValues = action.payload
         }
     },

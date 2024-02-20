@@ -24,7 +24,6 @@ export default function Filter() {
       };
 
     const handleSubmit = () => {
-      
       dispatch(setRangeValues([inputMin, inputMax]));
     };
 
@@ -38,7 +37,7 @@ export default function Filter() {
             </div>
           </div>
           <div className='flex w-full justify-between px-5 pb-6'>
-            <input 
+            <input
                 type="text" 
                 inputMode='numeric' 
                 value={inputMin}
