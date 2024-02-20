@@ -59,7 +59,7 @@ export default function CartItem(product) {
           />
         </div>
         <div className="flex flex-col items-start gap-3 justify-between h-16 w-3/4">
-          <p className="text-xs font-semibold">{product.title}</p>
+          <p className="font-semibold">{product.title}</p>
           <div className="flex items-center justify-between w-full pr-4">
             <p className="text-sm font-semibold">$ {product.price}</p>
             <div className="py-2 flex items-center h-6 bg-white border border-gray-500 w-24  justify-between rounded-md">
