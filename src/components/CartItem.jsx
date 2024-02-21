@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import toast from 'react-hot-toast';
 
 import { addItem, deleteItem, removeItems } from "../redux/cart/cartSlice";
 import Minus from "../SVG/Minus";
@@ -6,6 +7,7 @@ import Plus from "../SVG/Plus";
 
 export default function CartItem(product) {
 
+  
     const dispatch = useDispatch();
 
     product = product.item;
@@ -32,7 +34,6 @@ export default function CartItem(product) {
           quantity: product.quantity,
           totalPrice: product.totalPrice
         };
-  
         dispatch(removeItems(cartItem))
       }
 
@@ -45,7 +46,7 @@ export default function CartItem(product) {
           quantity: product.quantity,
           totalPrice: product.totalPrice
         };
-  
+        toast.success('Item removed from cart');
         dispatch(deleteItem(cartItem))
       }
 

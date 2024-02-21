@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectRangeValues } from '../redux/user/rangeSlice';
 import { searchProduct } from '../redux/user/searchSlice';
 import Filter from '../components/Filter';
+import { Toaster } from 'react-hot-toast';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -42,6 +43,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-grow w-full lg:flex-row flex-col">
+      <Toaster />
       <Filter/>
       <div className="flex flex-col items-center lg:justify-center w-full lg:w-3/4 p-6 lg:pl-2 lg:pr-5 lg:py-5 bg-[#FCFBFC] rounded-lg">
         <div className="flex flex-col flex-grow justify-start w-full bg-white border border-gray-500 shadow-sm rounded-lg">

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart, itemCount, itemList, totalPrice } from "../redux/cart/cartSlice";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
+import toast from 'react-hot-toast';
 
 export default function Cart(props) {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ export default function Cart(props) {
   const Items = useSelector(itemList);
 
   const handleClearCart = () => {
+    toast.success('Cart cleared');
     dispatch(clearCart());
   };
 

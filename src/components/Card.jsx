@@ -1,32 +1,46 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addItem } from "../redux/cart/cartSlice";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, itemList } from "../redux/cart/cartSlice";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Card = (product) => {
 
   const dispatch = useDispatch();
+  const [added, setAdded] = useState(false);
 
   product = product.product;
+  
+  const Items = useSelector(itemList);
 
-  const  [quantity, setQuantity] = useState(1);
+  useEffect(() => {
+    const isProductPresent = Items.find(item => item.id === product.id);
+    setAdded(isProductPresent);
+  },[Items]);
+
+  const quantity = 1;
   
   const addtoCart = () => {
-      const totalPrice = product.price * quantity;
-      const cartItem = {
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        image: product.images[0],
-        quantity: quantity,
-        totalPrice: totalPrice
-      };
-
-      dispatch(addItem(cartItem))
-    }
-
+    added
+      ? toast.error('Item already added to cart')
+      : (() => {
+          const totalPrice = product.price * quantity;
+          const cartItem = {
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.images[0],
+            quantity: quantity,
+            totalPrice: totalPrice
+          };
+          setAdded(true);
+          toast.success('Item added to cart');
+          dispatch(addItem(cartItem));
+        })();
+  };
 
   return (
     <div className="flex w-80 border border-gray-400 rounded-md hover:shadow-md cursor-pointer">
+      <Toaster />
       <div className="w-full relative bg-white rounded-md p-4">
         <img
           src={product.images[0]}
@@ -47,7 +61,7 @@ const Card = (product) => {
               {product.description}
             </p>
           </div>
-          <button className="flex flex-row items-center justify-center h-8 p-4 bg-orange-500 rounded-full" onClick={addtoCart}>
+          <button className={`flex flex-row items-center justify-center h-8 p-4 ${added ? 'bg-orange-300' :`bg-orange-500`} rounded-full`} onClick={addtoCart}>
             <p className="text-sm font-semibold text-white">Add to cart</p>
           </button>
         </div>

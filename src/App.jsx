@@ -17,14 +17,20 @@ export default function App() {
     );
   };
   
+  const AuthenticatedRoute = ({ element, path }) => {
+    return (loggedIn) ? (
+      <Navigate to="/" replace state={{ from: path }} />
+    ) : (
+      element
+    );
+  };
 
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<ProtectedRoute element={<Home />} path={"/"}/>} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/sign-in" element={<AuthenticatedRoute element={<SignIn />} path={"/sign-in"}/>} />
       </Routes>
     </BrowserRouter>
   );

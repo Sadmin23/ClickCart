@@ -34,6 +34,7 @@ export default function SignIn() {
     .then(data => {
       // kminchelle  0lelplR
       (data && data.token) ? (() => {
+        toast.success('Sign In Successful');
         dispatch(login());
         navigate('/');
       })() : toast.error('Sign In Failed');
