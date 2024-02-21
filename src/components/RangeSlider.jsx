@@ -1,6 +1,6 @@
 import Slider from '@mui/material/Slider';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectRangeValues, setRangeValues } from '../redux/user/rangeSlice';
+import { selectRangeValues, setRangeValues } from '../redux/filter/rangeSlice';
 
 export default function RangeSlider() {
   const dispatch = useDispatch();

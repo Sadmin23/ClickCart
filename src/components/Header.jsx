@@ -31,8 +31,9 @@ export default function Header() {
     <div className="flex flex-col w-full ">
       <div className="flex items-center justify-between sticky top-0 z-30 left-0 bg-white px-5 h-16 shadow-sm border-b border-gray-300">
         <div className="flex items-center">
-          <Link to="/">
-            <h1 className='md:pl-10 text-xl tracking-wide font-bold'>ShopIT</h1>
+          <Link className='flex md:pl-10 gap-2 items-center' to="/">
+            <img className="w-10 h-10" src="shopping-cart.png" alt="logo"/>            
+            <h1 className='text-2xl font-bold'>ClickCart</h1>
           </Link>
         </div>
         {loggedIn && <SearchBar/>}

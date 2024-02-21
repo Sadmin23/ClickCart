@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import { useSelector } from 'react-redux';
-import { selectRangeValues } from '../redux/user/rangeSlice';
-import { searchProduct } from '../redux/user/searchSlice';
+import { selectRangeValues } from '../redux/filter/rangeSlice';
+import { searchProduct } from '../redux/filter/searchSlice';
 import Filter from '../components/Filter';
 import { Toaster } from 'react-hot-toast';
 

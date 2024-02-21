@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import RangeSlider from './RangeSlider'
 import { useDispatch, useSelector } from 'react-redux';
-import { selectRangeValues, setRangeValues } from '../redux/user/rangeSlice';
+import { selectRangeValues, setRangeValues } from '../redux/filter/rangeSlice';
 
 export default function Filter() {
 

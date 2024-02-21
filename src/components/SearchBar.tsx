@@ -2,7 +2,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
 import React from 'react'
 import { useDispatch } from "react-redux";
-import { setSearchValue } from "../redux/user/searchSlice";
+import { setSearchValue } from "../redux/filter/searchSlice";
 
 const SearchBar = () => {
 
