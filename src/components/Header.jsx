@@ -32,12 +32,12 @@ export default function Header() {
       <div className="flex items-center justify-between sticky top-0 z-30 left-0 bg-white px-5 h-16 shadow-sm border-b border-gray-300">
         <div className="flex items-center">
           <Link className='flex md:pl-10 gap-2 items-center' to="/">
-            <img className="w-10 h-10" src="shopping-cart.png" alt="logo"/>            
-            <h1 className='text-2xl font-bold'>ClickCart</h1>
+            {/* <img className="w-8 h-8" src="shopping-cart.png" alt="logo"/>             */}
+            <h1 className='text-xl font-bold'>ClickCart</h1>
           </Link>
         </div>
         {loggedIn && <SearchBar/>}
-        {loggedIn && <div className="flex items-center gap-2 relative">
+        {loggedIn && <div className="flex items-center gap-1 relative">
           <FiShoppingCart
             className="h-5 w-5 mr-6 hover:cursor-pointer"
             onClick={() => handleCart(cartOpen)}
