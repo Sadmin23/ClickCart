@@ -46,15 +46,12 @@ $ npm run dev
 ## Screen shots
 
 ### Sign-in page:
-
-![search](https://github.com/Sadmin23/PopCorner/assets/86393032/26c54d53-8a44-43e4-9076-d43e99e17dcd)
+![sign-in](https://github.com/Sadmin23/ClickCart/assets/86393032/617fa990-dc5b-4180-b388-c63db3db0a28)
 
 ### Home Page:
-
-![details](https://github.com/Sadmin23/PopCorner/assets/86393032/ad6f7874-6916-42a6-96e9-83bcfebf5dff)
+![homepage](https://github.com/Sadmin23/ClickCart/assets/86393032/f367a01f-a0d8-4da7-8c73-7c8e7c50333d)
 
 ### Cart:
-
-![rate](https://github.com/Sadmin23/PopCorner/assets/86393032/5349256a-1c98-4885-884e-4fc2ee4dde55)
+![cart](https://github.com/Sadmin23/ClickCart/assets/86393032/2ca18b1c-27a9-465c-be41-deab0387f96b)
 
 <br/>
